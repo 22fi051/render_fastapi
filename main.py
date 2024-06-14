@@ -36,7 +36,7 @@ def omikuji():
 
 @app.post("/circleArea")
 async def circleArea(radius: float = Form(...)):
-    return {"result": radius * radius * 3.14159}
+    return {"result": f"面積は{radius * radius * 3.14159}"}
 
 @app.get("/index")
 def index():
