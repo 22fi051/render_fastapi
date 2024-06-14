@@ -44,6 +44,37 @@ def index():
     <html>
         <head>
             <title>Some HTML in here</title>
+            <style>
+                body {
+                    background-color: #f0f0f0;
+                    font-family: Arial, sans-serif;
+                }
+                h1 {
+                    color: #333;
+                }
+                form {
+                    margin-top: 20px;
+                }
+                label {
+                    display: block;
+                    margin-bottom: 10px;
+                }
+                input[type="number"] {
+                    width: 100%;
+                    padding: 10px;
+                    margin-bottom: 10px;
+                }
+                input[type="submit"] {
+                    padding: 10px 20px;
+                    background-color: #007BFF;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                input[type="submit"]:hover {
+                    background-color: #0056b3;
+                }
+            </style>
         </head>
         <body>
             <h1>円の面積を求めます!</h1>
@@ -53,6 +84,44 @@ def index():
                 <input type="number" id="radius" name="radius" step="0.01"><br>
                 <input type="submit" value="Submit">
             </form>
+        </body>
+    </html>
+    """
+    return HTMLResponse(content=html_content, status_code=200)
+
+@app.get("/indexOmikuji")
+def indexOmikuji():
+    html_content = """
+    <html>
+        <head>
+            <title>omikuji</title>
+                        <style>
+                body {
+                    background-color: #f0f0f0;
+                    font-family: Arial, sans-serif;
+                }
+                h1 {
+                    color: #333;
+                }
+                p {
+                    margin-top: 20px;
+                }
+                a {
+                    display: inline-block;
+                    padding: 10px 20px;
+                    background-color: #FF0000;
+                    color: white;
+                    text-decoration: none;
+                    border-radius: 5px;
+                }
+                a:hover {
+                    background-color: #CC0000;
+                }
+            </style>
+        </head>
+        <body>
+            <h1>今日の運勢</h1>
+            <p><a href="/omikuji">おみくじを引く</a></p>
         </body>
     </html>
     """
