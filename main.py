@@ -31,3 +31,7 @@ def omikuji():
     ]
 
     return omikuji_list[random.randrange(10)]
+
+@app.post("/circleArea")
+def circleArea(radius: float):
+    return radius * radius * 3.14159
