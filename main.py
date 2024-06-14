@@ -34,7 +34,7 @@ def omikuji():
 
     return {"omikuji": omikuji_list[random.randrange(10)]}
 
-@app.post("/circleArea")
+@app.post("/present")
 async def circleArea(radius: float = Form(...)):
     return {"result": f"面積は{radius * radius * 3.14159}"}
 
@@ -79,7 +79,7 @@ def index():
         <body>
             <h1>円の面積を求めます!</h1>
 
-            <form action="/circleArea" method="post">
+            <form action="/present" method="post">
                 <label for="radius">半径を入力してください</label>
                 <input type="number" id="radius" name="radius" step="0.01"><br>
                 <input type="submit" value="Submit">
