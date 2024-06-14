@@ -1,6 +1,6 @@
 from typing import Optional
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Form
 
 from fastapi.responses import HTMLResponse
 
@@ -35,7 +35,7 @@ def omikuji():
     return {"omikuji": omikuji_list[random.randrange(10)]}
 
 @app.post("/circleArea")
-async def circleArea(radius: float):
+async def circleArea(radius: float = Form(...)):
     return {"result": radius * radius * 3.14159}
 
 @app.get("/index")
@@ -46,7 +46,13 @@ def index():
             <title>Some HTML in here</title>
         </head>
         <body>
-            <h1>Look ma! HTML!</h1>
+            <h1>円の面積を求めます!</h1>
+
+            <form action="/circleArea" method="post">
+                <label for="radius">半径を入力してください</label>
+                <input type="number" id="radius" name="radius" step="0.01"><br>
+                <input type="submit" value="Submit">
+            </form>
         </body>
     </html>
     """
